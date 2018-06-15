@@ -20,10 +20,8 @@
   },
   "interface": {
     "dependencies": [
-      "fliplet-datasources",
       "fliplet-core",
-      "fliplet-studio-ui",
-      "lodash"
+      "fliplet-studio-ui"
     ],
     "assets": [
       "js/settings.js",
