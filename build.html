@@ -2,10 +2,10 @@
   <div class="fl-bottom-bar-menu-holder">
     <ul>
       {{#each pages as |page pageIndex|}}
-          <li data-fl-navigate='{{{page.action}}}' data-page-index="{{pageIndex}}" data-page-id="{{page.pageId}}" data-page-order="{{page.order}}">
+          <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
             <div class="fl-bottom-bar-icon-holder">
               <div class="fl-menu-icon">
-                <i class="fa fa-{{#with (lookup ../icons pageIndex)}}{{icon}}{{/with}}"></i>
+                <i class="{{page.icon}}"></i>
               </div>
               <div class="fl-menu-title">
                 <span>{{page.label}}</span>
