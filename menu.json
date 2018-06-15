@@ -1,0 +1,37 @@
+{
+  "name": "Bottom bar",
+  "package": "com.fliplet.menu.bottom-bar",
+  "version": "1.0.0",
+  "icon": "img/icon.png",
+  "tags": ["type:menu"],
+  "provider_only": false,
+  "references": [],
+  "html_tag": "div",
+  "build": {
+    "dependencies": [
+      "bootstrap",
+      "font-awesome",
+      "fliplet-core"
+    ],
+    "assets": [
+      "css/menu.css",
+      "js/menu.js"
+    ]
+  },
+  "interface": {
+    "dependencies": [
+      "fliplet-datasources",
+      "fliplet-core",
+      "fliplet-studio-ui",
+      "lodash"
+    ],
+    "assets": [
+      "js/settings.js",
+      "css/settings.css"
+    ]
+  },
+  "settings": {
+    "position": "bottom",
+    "gifIcon": "img/icon.gif"
+  }
+}

@@ -1,0 +1,122 @@
+body {
+  height: 100%;
+}
+
+body.disableScroll {
+  overflow: hidden;
+}
+
+.fl-bottom-bar-menu-holder {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 100vh;
+  z-index: 10;
+  display: block;
+  background-color: #333333;
+  color: #ffffff;
+  padding: 1rem 0;
+  transform: translate3d(0px, -72px, 0);
+}
+
+.fl-bottom-bar-menu-holder ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.fl-bottom-bar-menu-holder ul li {
+  display: inline-block;
+  width: 20%;
+  margin: 0;
+}
+
+.fl-bottom-bar-menu-holder li .fl-bottom-bar-icon-holder {
+  min-height: 52px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  -webkit-box-direction: normal;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder .fl-menu-icon {
+  padding: 0 .5rem;
+  margin-bottom: 10px;
+  opacity: 0.5;
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  -webkit-box-direction: normal;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder.active .fl-menu-icon {
+  opacity: 1;
+  color: #337ab7;
+}
+
+.fl-bottom-bar-menu-holder .fl-menu-icon .fa {
+  font-size: 30px;
+}
+
+.fl-bottom-bar-menu-holder .fl-menu-title {
+  font-size: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: .25rem;
+  padding-right: .25rem;
+  opacity: 0.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder.active .fl-menu-title {
+  opacity: 1;
+  color: #337ab7;
+}
