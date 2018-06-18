@@ -2,16 +2,16 @@
   <div class="fl-bottom-bar-menu-holder">
     <ul>
       {{#each pages as |page pageIndex|}}
-          <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
-            <div class="fl-bottom-bar-icon-holder">
-              <div class="fl-menu-icon">
-                <i class="{{page.icon}}"></i>
-              </div>
-              <div class="fl-menu-title">
-                <span>{{page.label}}</span>
-              </div>
+        <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
+          <div class="fl-bottom-bar-icon-holder">
+            <div class="fl-menu-icon">
+              <i class="{{page.icon}}"></i>
             </div>
-          </li>
+            <div class="fl-menu-title">
+              <span>{{page.label}}</span>
+            </div>
+          </div>
+        </li>
       {{/each}}
     </ul>
   </div>
