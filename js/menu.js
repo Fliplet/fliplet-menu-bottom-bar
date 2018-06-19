@@ -19,10 +19,15 @@ function init() {
     var hiddenHeight = totalMenuHeight - 65; // 65 is what is visible from the start
 
     if ( $parent.hasClass('expanded') ) {
-      $parent.removeClass('expanded').css({
-        'transform': 'translate3d(0px, -65px, 0)',
-        'transform': 'translate3d(0px, calc(-65px - env(safe-area-inset-bottom)), 0)',
-      });
+      if (Modernizr.iphonex) {
+        $parent.removeClass('expanded').css({
+          'transform': 'translate3d(0px, calc(-65px - env(safe-area-inset-bottom)), 0)'
+        });
+      } else {
+        $parent.removeClass('expanded').css({
+          'transform': 'translate3d(0px, -65px, 0)'
+        });
+      }
     } else {
       $parent.addClass('expanded').css({
         'transform': 'translate3d(0px, -' + totalMenuHeight + 'px, 0)'
