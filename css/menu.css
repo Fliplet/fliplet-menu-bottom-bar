@@ -19,7 +19,7 @@ body.disableScroll {
   color: rgba(255,255,255,0.5);
   padding: 0;
   transform: translate3d(0px, -65px, 0);
-  transform: translate3d(0px, calc(-65px - env(safe-area-inset-bottom), 0);
+  transform: translate3d(0px, calc(-65px - env(safe-area-inset-bottom)), 0);
   transition: transform 0.2s ease-out;
 }
 
