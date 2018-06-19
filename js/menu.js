@@ -31,6 +31,11 @@ function init() {
     }
   });
 
+  $('.fl-bottom-bar-menu-holder li').not('[data-show-more]').on('click', function() {
+    $('.fl-bottom-bar-icon-holder').removeClass('active');
+    $(this).find('.fl-bottom-bar-icon-holder').addClass('active');
+  });
+
   $('[open-about-overlay]').on('click', function() {
     Fliplet.Navigate.to({
       action: 'about-overlay'
