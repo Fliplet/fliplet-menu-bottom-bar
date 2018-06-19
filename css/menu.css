@@ -139,3 +139,10 @@ body.disableScroll {
 .fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder.active .fl-menu-title {
   color: #00abd1;
 }
+
+@media screen and (min-width: 640px) {
+  .fl-bottom-bar-menu-holder ul {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
