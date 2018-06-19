@@ -20,11 +20,13 @@ function init() {
 
     if ( $parent.hasClass('expanded') ) {
       $parent.removeClass('expanded').css({
-        'transform': 'translate3d(0px, -65px, 0)'
+        'transform': 'translate3d(0px, -65px, 0)',
+        'transform': 'translate3d(0px, calc(-65px - env(safe-area-inset-bottom), 0)',
       });
     } else {
       $parent.addClass('expanded').css({
-        'transform': 'translate3d(0px, -' + totalMenuHeight + 'px, 0)'
+        'transform': 'translate3d(0px, -' + totalMenuHeight + 'px, 0)',
+        'transform': 'translate3d(0px, calc(-' + totalMenuHeight + ' - env(safe-area-inset-bottom), 0)',
       });
     }
   });
