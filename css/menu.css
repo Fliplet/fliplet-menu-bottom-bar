@@ -22,6 +22,13 @@ body.disableScroll {
   transition: transform 0.2s ease-out;
 }
 
+.fl-bottom-bar-menu-holder-tablet {
+  display: none;
+}
+.fl-bottom-bar-menu-holder-mobile {
+  display: block;
+}
+
 .fl-bottom-bar-menu-holder ul {
   padding: 0;
   margin: 0;
@@ -70,6 +77,10 @@ body.disableScroll {
   min-height: 65px;
   padding-bottom: 8px;
   margin-bottom: 5px;
+}
+
+.fl-bottom-bar-menu-holder-tablet ul li {
+  width: 12.5%;
 }
 
 .fl-bottom-bar-menu-holder li .fl-bottom-bar-icon-holder {
@@ -142,7 +153,15 @@ body.disableScroll {
 
 @media screen and (min-width: 640px) {
   .fl-bottom-bar-menu-holder ul {
-    max-width: 500px;
+    max-width: 640px;
     margin: 0 auto;
+  }
+
+  .fl-bottom-bar-menu-holder-tablet {
+    display: block;
+  }
+
+  .fl-bottom-bar-menu-holder-mobile {
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-var $menuElement = $('[data-name="Bottom bar"]');
+var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 var pageId = Fliplet.Env.get('pageId');
 
@@ -8,21 +8,22 @@ if (menuInstanceId) {
 
 function init() {
   var data = Fliplet.Widget.getData(menuInstanceId) || {};
-  
+
   // Select active page
   $('.fl-bottom-bar-menu-holder li[data-page-id="' + pageId + '"]').find('.fl-bottom-bar-icon-holder').addClass('active');
 
   // Show more, when available
-  $('[data-show-more]').on('click', function() {
-    var totalMenuHeight = $('.fl-bottom-bar-menu-holder').outerHeight(true);
+  $('li[data-show-more]').on('click', function() {
+    var $parent = $(this).parents('.fl-bottom-bar-menu-holder');
+    var totalMenuHeight = $parent.outerHeight(true);
     var hiddenHeight = totalMenuHeight - 65; // 65 is what is visible from the start
 
-    if ( $('.fl-bottom-bar-menu-holder').hasClass('expanded') ) {
-      $('.fl-bottom-bar-menu-holder').removeClass('expanded').css({
+    if ( $parent.hasClass('expanded') ) {
+      $parent.removeClass('expanded').css({
         'transform': 'translate3d(0px, -65px, 0)'
       });
     } else {
-      $('.fl-bottom-bar-menu-holder').addClass('expanded').css({
+      $parent.addClass('expanded').css({
         'transform': 'translate3d(0px, -' + totalMenuHeight + 'px, 0)'
       });
     }
