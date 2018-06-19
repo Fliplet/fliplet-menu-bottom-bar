@@ -58,9 +58,9 @@ body.disableScroll {
   display: -ms-flexbox;
   display: flex;
 
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -68,11 +68,11 @@ body.disableScroll {
 
   width: 20%;
   min-height: 65px;
+  padding-bottom: 8px;
   margin-bottom: 5px;
 }
 
 .fl-bottom-bar-menu-holder li .fl-bottom-bar-icon-holder {
-  min-height: 45px;
   max-height: 45px;
   position: relative;
   overflow: hidden;
