@@ -81,6 +81,7 @@ body.disableScroll {
   min-height: calc(65px + env(safe-area-inset-bottom));
   padding-bottom: 8px;
   padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  background-color: transparent;
 }
 
 .fl-bottom-bar-menu-holder-tablet ul li {
@@ -130,7 +131,11 @@ body.disableScroll {
   justify-content: center;
 }
 
-.fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder.active .fl-menu-icon {
+.fl-bottom-bar-menu-holder li.active {
+  background-color: transparent;
+}
+
+.fl-bottom-bar-menu-holder li.active .fl-menu-icon {
   color: #00abd1;
 }
 
@@ -148,7 +153,7 @@ body.disableScroll {
   text-overflow: ellipsis;
 }
 
-.fl-bottom-bar-menu-holder .fl-bottom-bar-icon-holder.active .fl-menu-title {
+.fl-bottom-bar-menu-holder li.active .fl-menu-title {
   color: #00abd1;
 }
 
