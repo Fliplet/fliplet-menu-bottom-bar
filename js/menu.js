@@ -7,6 +7,7 @@ if (menuInstanceId) {
 }
 
 function init() {
+  $('body').addClass('fl-menu-bottom-bar');
   var data = Fliplet.Widget.getData(menuInstanceId) || {};
 
   // Select active page
