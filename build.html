@@ -1,6 +1,6 @@
 {{#if pages}}
   <!-- TABLET MARKUP -->
-  <div class="fl-bottom-bar-menu-holder fl-bottom-bar-menu-holder-tablet {{#compare pages.length '>' 8}}multiple{{/compare}}">
+  <div class="fl-menu-body fl-bottom-bar-menu-holder fl-bottom-bar-menu-holder-tablet {{#compare pages.length '>' 8}}multiple{{/compare}}">
     <ul>
       {{#each pages as |page pageIndex|}}
         {{#compare ../pages.length '>' 8}}
@@ -59,7 +59,7 @@
     </ul>
   </div>
   <!-- MOBILE MARKUP -->
-  <div class="fl-bottom-bar-menu-holder fl-bottom-bar-menu-holder-mobile {{#compare pages.length '>' 5}}multiple{{/compare}}">
+  <div class="fl-menu-body fl-bottom-bar-menu-holder fl-bottom-bar-menu-holder-mobile {{#compare pages.length '>' 5}}multiple{{/compare}}">
     <ul>
       {{#each pages as |page pageIndex|}}
         {{#compare ../pages.length '>' 5}}
