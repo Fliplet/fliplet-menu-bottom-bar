@@ -175,3 +175,8 @@ body.disableScroll {
     font-size: 10px;
   }
 }
+
+/* Removes arrow from navigate.js appended Exit App menu item */
+[data-fl-exit-app].fa-angle-right.linked-icon {
+  display: none;
+}
