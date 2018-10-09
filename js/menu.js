@@ -19,19 +19,21 @@ function init() {
     var totalMenuHeight = $parent.outerHeight(true);
     var hiddenHeight = totalMenuHeight - 65; // 65 is what is visible from the start
 
-    if ( $parent.hasClass('expanded') ) {
-      if (Modernizr.iphonex) {
-        $parent.removeClass('expanded').css({
-          'transform': 'translate3d(0px, calc(-65px - env(safe-area-inset-bottom)), 0)'
-        });
-      } else {
-        $parent.removeClass('expanded').css({
-          'transform': 'translate3d(0px, -65px, 0)'
-        });
-      }
-    } else {
+    if (!$parent.hasClass('expanded')) {
       $parent.addClass('expanded').css({
         'transform': 'translate3d(0px, -' + totalMenuHeight + 'px, 0)'
+      });
+    } else if (Modernizr.notch) {
+      $parent.removeClass('expanded').css({
+        'transform': 'translate3d(0px, calc(-65px - env(safe-area-inset-bottom)), 0)'
+      });
+    } else if ($('html').is('[data-has-notch]')) {
+      $parent.removeClass('expanded').css({
+        'transform': 'translate3d(0px, -99px, 0)'
+      });
+    } else {
+      $parent.removeClass('expanded').css({
+        'transform': 'translate3d(0px, -65px, 0)'
       });
     }
   });
