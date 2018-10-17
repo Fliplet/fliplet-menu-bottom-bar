@@ -17,7 +17,7 @@ body.disableScroll {
   left: 0;
   right: 0;
   top: 100vh;
-  z-index: 1009;
+  z-index: 10;
   display: block;
   background-color: #333333;
   color: rgba(255,255,255,0.5);
