@@ -199,3 +199,12 @@ body.disableScroll {
 [data-fl-exit-app] .fa-angle-right.linked-icon {
   display: none;
 }
+
+.slide-over {
+  padding-bottom: 85px;
+  padding-bottom: calc(85px + env(safe-area-inset-bottom));
+}
+
+[data-has-notch] .slide-over {
+  padding-bottom: calc(85px + 34px);
+}
