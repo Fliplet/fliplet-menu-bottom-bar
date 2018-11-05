@@ -16,15 +16,28 @@ body.disableScroll {
   position: fixed;
   left: 0;
   right: 0;
-  top: 100vh;
+  bottom: 0;
   z-index: 1009;
   display: block;
-  background-color: #333333;
   color: rgba(255,255,255,0.5);
   padding: 0;
+  pointer-events: none;
   transform: translate3d(0, -65px, 0);
   transform: translate3d(0, calc(-65px - env(safe-area-inset-bottom)), 0);
   transition: transform 0.2s ease-out;
+}
+
+.fl-bottom-bar-menu-holder ul {
+  pointer-events: all;
+  background-color: #333333;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.2s ease-out;
+}
+
+.fl-bottom-bar-menu-holder.expanded,
+[data-has-notch] .fl-bottom-bar-menu-holder.expanded,
+.fl-bottom-bar-menu-holder.expanded ul {
+  transform: translate3d(0, 0, 0);
 }
 
 [data-has-notch] .fl-bottom-bar-menu-holder {
@@ -172,8 +185,7 @@ body.disableScroll {
 
 @media screen and (min-width: 640px) {
   .fl-bottom-bar-menu-holder ul {
-    max-width: 640px;
-    margin: 0 auto;
+    padding: 0 10%;
   }
 
   .fl-bottom-bar-menu-holder-tablet {
