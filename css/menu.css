@@ -115,7 +115,7 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder li .fl-bottom-bar-icon-holder {
-  max-height: 45px;
+  max-height: 50px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
