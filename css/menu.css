@@ -200,7 +200,8 @@ body.disableScroll {
 
 @media screen and (min-width: 640px) {
   .fl-bottom-bar-menu-holder ul {
-    padding: 0 10%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   .fl-bottom-bar-menu-holder-tablet {
