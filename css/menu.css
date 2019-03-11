@@ -109,6 +109,10 @@ body.disableScroll {
   background-color: transparent;
 }
 
+.fl-bottom-bar-menu-holder.expanded ul li[data-show-more] .notification-badge {
+  display: none;
+}
+
 .fl-bottom-bar-menu-holder ul li[data-show-more] ~ li {
   pointer-events: none;
   opacity: 0;
@@ -132,7 +136,8 @@ body.disableScroll {
 .fl-bottom-bar-menu-holder li .fl-bottom-bar-icon-holder {
   max-height: 50px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  max-width: 100%;
   cursor: pointer;
 
   display: -webkit-box;
@@ -181,6 +186,7 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder .fl-menu-icon .fa {
+  position: relative;
   font-size: 27px;
 }
 
