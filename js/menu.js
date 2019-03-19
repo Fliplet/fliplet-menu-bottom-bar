@@ -2,13 +2,36 @@ var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 var pageId = Fliplet.Env.get('pageId');
 
-if (menuInstanceId) {
-  init();
-}
-
 function init() {
-  $('body').addClass('fl-menu-bottom-bar');
   var data = Fliplet.Widget.getData(menuInstanceId) || {};
+  $('body').addClass('fl-menu-bottom-bar');
+
+  // Add exit app link
+  Fliplet.Hooks.on('addExitAppMenuLink', function () {
+    if ($menuElement.find('li[data-fl-navigate*="exit-app"]').length) {
+      return;
+    }
+
+    var $li = $([
+      '<li class="linked" data-fl-exit-app>',
+        '<div class="fl-bottom-bar-icon-holder">',
+          '<div class="fl-menu-icon">',
+            '<i class="fa fa-sign-out"></i>',
+          '</div>',
+          '<div class="fl-menu-title">',
+            '<span>Exit app</span>',
+          '</div>',
+        '</div>',
+      '</li>'
+    ].join(''));
+    $li.on('click', function onExitClick() {
+      Fliplet.Navigate.exitApp();
+    });
+    $(this).find('ul').append($li);
+
+    // Prevent default "Exit app" link from being added
+    return Promise.reject('');
+  });
 
   // Select active page
   $('.fl-bottom-bar-menu-holder li[data-page-id="' + pageId + '"]').addClass('active');
@@ -29,4 +52,8 @@ function init() {
       action: 'about-overlay'
     });
   });
+}
+
+if (menuInstanceId) {
+  init();
 }
