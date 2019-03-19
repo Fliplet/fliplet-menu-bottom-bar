@@ -30,7 +30,7 @@ function init() {
     $menuElement.find('ul').append($li);
 
     // Prevent default "Exit app" link from being added
-    return Promise.reject('');
+    return Promise.reject();
   });
 
   // Select active page
