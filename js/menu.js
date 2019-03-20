@@ -8,6 +8,18 @@ function init() {
 
   // Add exit app link
   Fliplet.Hooks.on('addExitAppMenuLink', function () {
+    var moreLink = [
+      '<li data-show-more>',
+        '<div class="fl-bottom-bar-icon-holder">',
+          '<div class="fl-menu-icon">',
+            '<i class="fa fa-ellipsis-h"></i>',
+          '</div>',
+          '<div class="fl-menu-title">',
+            '<span>More</span>',
+          '</div>',
+        '</div>',
+      '</li>'
+    ].join('');
     $menuElement.find('.fl-bottom-bar-menu-holder').each(function () {
       var $menuHolder = $(this);
       var type = $menuHolder.hasClass('fl-bottom-bar-menu-holder-mobile') ? 'mobile' : 'tablet';
@@ -22,18 +34,7 @@ function init() {
 
       if ($menuHolder.find('li').length === maxIcons[type]) {
         var $shiftedMenuItem = $menuHolder.find('li').eq(maxIcons[type] - 1);
-        $shiftedMenuItem.css('display', 'none').before([
-          '<li data-show-more>',
-            '<div class="fl-bottom-bar-icon-holder">',
-              '<div class="fl-menu-icon">',
-                '<i class="fa fa-ellipsis-h"></i>',
-              '</div>',
-              '<div class="fl-menu-title">',
-                '<span>More</span>',
-              '</div>',
-            '</div>',
-          '</li>'
-        ].join(''));
+        $shiftedMenuItem.css('display', 'none').before(moreLink);
         $menuHolder.addClass('multiple');
         setTimeout(function () {
           $shiftedMenuItem.css('display', '');
