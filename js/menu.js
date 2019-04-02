@@ -12,10 +12,10 @@ function init() {
       '<li data-show-more>',
         '<div class="fl-bottom-bar-icon-holder">',
           '<div class="fl-menu-icon">',
-            '<i class="fa fa-ellipsis-h"></i>',
+            '<i class="fa fa-chevron-up"></i>',
           '</div>',
           '<div class="fl-menu-title">',
-            '<span>More</span>',
+            '<span class="more">More</span><span class="hide">Hide</span>',
           '</div>',
         '</div>',
       '</li>'
