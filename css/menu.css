@@ -134,6 +134,29 @@ body.disableScroll {
   transform: translate3d(0, 0, 0);
 }
 
+.fl-bottom-bar-menu-holder ul li[data-show-more] .fa {
+  font-size: 18px;
+  margin-top: -30px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  -webkit-transform: rotate(0) translate3d(0, 0, 0);
+  transform: rotate(0) translate3d(0, 0, 0);
+}
+
+.fl-bottom-bar-menu-holder.expanded ul li[data-show-more] .fa {
+  -webkit-transform: rotate(180deg) translate3d(0, 0, 0);
+  transform: rotate(180deg) translate3d(0, 0, 0);
+}
+
+.fl-bottom-bar-menu-holder ul li[data-show-more] .fl-menu-title .hide,
+.fl-bottom-bar-menu-holder.expanded ul li[data-show-more] .fl-menu-title .more {
+  display: none;
+}
+
+.fl-bottom-bar-menu-holder.expanded ul li[data-show-more] .fl-menu-title .hide {
+  display: inline !important;
+}
+
 .fl-bottom-bar-menu-holder.expanded ul li[data-show-more] ~ li {
   pointer-events: all;
   opacity: 1;
