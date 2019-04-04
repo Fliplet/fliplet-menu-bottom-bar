@@ -104,9 +104,10 @@ body.disableScroll {
   width: 20%;
   line-height: 1.42857143;
   margin-bottom: 5px;
-  min-height: 65px;
+  height: 65px;
   padding: 8px 4px;
   background-color: transparent;
+  overflow: hidden;
 }
 
 .fl-bottom-bar-menu-holder ul li .notification-badge {
