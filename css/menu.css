@@ -17,10 +17,15 @@ body.disableScroll {
   left: 0;
   right: 0;
   bottom: 0;
+  height: 65px;
   z-index: 1009;
 }
 
 .fl-bottom-bar-menu-holder {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: block;
   color: rgba(255,255,255,0.5);
   padding: 0;
