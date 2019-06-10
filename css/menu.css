@@ -12,12 +12,20 @@ body.disableScroll {
   overflow: hidden;
 }
 
+[data-fl-widget-instance][data-type="menu"] {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 65px;
+  z-index: 1009;
+}
+
 .fl-bottom-bar-menu-holder {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1009;
   display: block;
   color: rgba(255,255,255,0.5);
   padding: 0;
