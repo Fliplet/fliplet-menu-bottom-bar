@@ -12,7 +12,7 @@ body.disableScroll {
   overflow: hidden;
 }
 
-[data-fl-widget-instance][data-widget-package="com.fliplet.menu.bottom-bar"] {
+[data-fl-widget-instance][data-type="menu"] {
   position: fixed !important;
   left: 0;
   right: 0;
