@@ -48,7 +48,7 @@ function init() {
               '<i class="fa fa-sign-out"></i>',
             '</div>',
             '<div class="fl-menu-title">',
-              '<span>Exit app</span>',
+              '<span>Exit</span>',
             '</div>',
           '</div>',
         '</li>'
@@ -59,7 +59,7 @@ function init() {
       $menuHolder.find('ul').append($li);
     });
 
-    // Prevent default "Exit app" link from being added
+    // Prevent default "Exit" link from being added
     return Promise.reject();
   });
 
