@@ -46,6 +46,9 @@ body.disableScroll {
 [data-has-notch] .fl-bottom-bar-menu-holder.expanded,
 .fl-bottom-bar-menu-holder.expanded ul {
   transform: translate3d(0, 0, 0);
+  overflow-y: scroll;
+  right: -30px;
+  max-height: 100%;
 }
 
 [data-has-notch] .fl-bottom-bar-menu-holder {
