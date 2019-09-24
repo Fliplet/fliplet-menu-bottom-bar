@@ -46,9 +46,8 @@ body.disableScroll {
 [data-has-notch] .fl-bottom-bar-menu-holder.expanded,
 .fl-bottom-bar-menu-holder.expanded ul {
   transform: translate3d(0, 0, 0);
-  overflow-y: scroll;
-  right: -30px;
-  max-height: 100%;
+  overflow-y: auto;
+  height: 100%;
 }
 
 [data-has-notch] .fl-bottom-bar-menu-holder {
@@ -286,4 +285,13 @@ body.disableScroll {
 
 [data-has-notch] .slide-over {
   padding-bottom: calc(85px + 34px);
+}
+
+/* Override global style for hide scroll if content does not take full screen */
+body.fl-with-bottom-menu.fl-menu-bottom-bar {
+  min-height: 95%;
+}
+
+.hide-scroll {
+  overflow: hidden;
 }
