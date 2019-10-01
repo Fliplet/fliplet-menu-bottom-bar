@@ -69,7 +69,15 @@ function init() {
   // Show more, when available
   $menuElement.on('click', 'li[data-show-more]', function() {
     var $parent = $(this).parents('.fl-bottom-bar-menu-holder');
+    var menuHeight = $parent[0].clientHeight;
+    var deviceHeight = window.document.documentElement.clientHeight;
     $parent.toggleClass('expanded');
+
+    // Prevent scrolling content when menu is opened
+    $('body.fl-with-bottom-menu.fl-menu-bottom-bar').toggleClass('hide-scroll');
+
+    // Set height depend on device and content height to prevent stretching the menu to full screen
+    $parent.height(menuHeight > deviceHeight ? '100%' : 'unset');
   });
 
   $menuElement.on('click', '.fl-bottom-bar-menu-holder li:not([data-show-more])', function() {
