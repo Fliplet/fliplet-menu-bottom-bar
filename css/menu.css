@@ -1,5 +1,9 @@
-body.fl-menu-bottom-bar,
-body.fl-menu-bottom-bar main.page-content-wrapper {
+.no-supports-container .fl-menu-bottom-bar {
+  padding-bottom: 65px;
+  padding-bottom: calc(65px + env(safe-area-inset-bottom));
+}
+
+.supports-container .fl-page-content-wrapper {
   padding-bottom: 65px;
   padding-bottom: calc(65px + env(safe-area-inset-bottom));
 }
