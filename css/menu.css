@@ -1,11 +1,16 @@
-body {
-  height: 100%;
-  padding-bottom: 80px;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom));
+.no-supports-container .fl-menu-bottom-bar {
+  padding-bottom: 65px;
+  padding-bottom: calc(65px + env(safe-area-inset-bottom));
+}
+
+.supports-container .fl-page-content-wrapper {
+  padding-bottom: 65px;
+  padding-bottom: calc(65px + env(safe-area-inset-bottom));
 }
 
 [data-has-notch] body {
-  padding-bottom: 114px;
+  /* !important - to override the page.css style that sometimes is added after the widget styles */
+  padding-bottom: 99px !important;
 }
 
 body.disableScroll {
@@ -279,17 +284,12 @@ body.disableScroll {
 }
 
 .slide-over {
-  padding-bottom: 85px;
-  padding-bottom: calc(85px + env(safe-area-inset-bottom));
+  padding-bottom: 65px;
+  padding-bottom: calc(65px + env(safe-area-inset-bottom));
 }
 
 [data-has-notch] .slide-over {
-  padding-bottom: calc(85px + 34px);
-}
-
-/* Override global style for hide scroll if content does not take full screen */
-body.fl-with-bottom-menu.fl-menu-bottom-bar {
-  min-height: 95%;
+  padding-bottom: calc(65px + 34px);
 }
 
 .hide-scroll {
