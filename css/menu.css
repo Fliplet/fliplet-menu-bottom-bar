@@ -9,7 +9,7 @@
 }
 
 [data-has-notch] body {
-  /* !import - to override the page.css style taht sometimes is added after the widget styles */
+  /* !important - to override the page.css style that sometimes is added after the widget styles */
   padding-bottom: 99px !important;
 }
 
