@@ -8,9 +8,10 @@
   padding-bottom: calc(65px + env(safe-area-inset-bottom));
 }
 
-[data-has-notch] body {
+[data-has-notch] body,
+[data-has-notch].supports-container .fl-page-content-wrapper {
   /* !important - to override the page.css style that sometimes is added after the widget styles */
-  padding-bottom: 99px !important;
+  padding-bottom: 99px;
 }
 
 body.disableScroll {
