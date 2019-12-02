@@ -5,7 +5,6 @@
 
 .supports-container .fl-page-content-wrapper {
   padding-bottom: 65px;
-  padding-bottom: calc(65px + env(safe-area-inset-bottom));
 }
 
 [data-has-notch] body,
