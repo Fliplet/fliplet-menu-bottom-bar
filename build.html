@@ -18,11 +18,13 @@
           {{/compare}}
           <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
             <div class="fl-bottom-bar-icon-holder">
-              {{#if page.icon}}
               <div class="fl-menu-icon">
+                {{#if page.icon}}
                 <i class="{{page.icon}}"></i>
+                {{else}}
+                <i class="fa fa-circle"></i>
+                {{/if}}
               </div>
-              {{/if}}
               <div class="fl-menu-title">
                 <span>{{page.label}}</span>
               </div>
@@ -31,11 +33,13 @@
         {{else}}
         <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
           <div class="fl-bottom-bar-icon-holder">
-            {{#if page.icon}}
             <div class="fl-menu-icon">
+              {{#if page.icon}}
               <i class="{{page.icon}}"></i>
+              {{else}}
+              <i class="fa fa-circle"></i>
+              {{/if}}
             </div>
-            {{/if}}
             <div class="fl-menu-title">
               <span>{{page.label}}</span>
             </div>
@@ -64,11 +68,13 @@
           {{/compare}}
           <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
             <div class="fl-bottom-bar-icon-holder">
-              {{#if page.icon}}
               <div class="fl-menu-icon">
+                {{#if page.icon}}
                 <i class="{{page.icon}}"></i>
+                {{else}}
+                <i class="fa fa-circle"></i>
+                {{/if}}
               </div>
-              {{/if}}
               <div class="fl-menu-title">
                 <span>{{page.label}}</span>
               </div>
@@ -77,11 +83,13 @@
         {{else}}
         <li data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}">
           <div class="fl-bottom-bar-icon-holder">
-            {{#if page.icon}}
             <div class="fl-menu-icon">
+              {{#if page.icon}}
               <i class="{{page.icon}}"></i>
+              {{else}}
+              <i class="fa fa-circle"></i>
+              {{/if}}
             </div>
-            {{/if}}
             <div class="fl-menu-title">
               <span>{{page.label}}</span>
             </div>
