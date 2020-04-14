@@ -298,3 +298,12 @@ body.disableScroll {
 .hide-scroll {
   overflow: hidden;
 }
+
+/* IE11 layout */
+@media screen and (-ms-high-contrast: none) {
+  .fl-bottom-bar-menu-holder.expanded,
+  [data-has-notch] .fl-bottom-bar-menu-holder.expanded,
+  .fl-bottom-bar-menu-holder.expanded ul {
+    height: auto;
+  }
+}
