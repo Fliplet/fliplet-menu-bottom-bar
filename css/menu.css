@@ -256,6 +256,10 @@ body.disableScroll {
   color: #00abd1;
 }
 
+.fl-bottom-bar-menu-holder li:focus {
+  outline: auto;
+}
+
 @media screen and (min-width: 640px) {
   .fl-bottom-bar-menu-holder ul {
     padding-left: 10%;
