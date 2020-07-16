@@ -67,7 +67,11 @@ function init() {
   $('.fl-bottom-bar-menu-holder li[data-page-id="' + pageId + '"]').addClass('active');
 
   // Show more, when available
-  $menuElement.on('click', 'li[data-show-more]', function() {
+  $menuElement.on('click keydown', 'li[data-show-more]', function() {
+    if (event.type !== 'click' && event.which !== 32 && event.which !== 13) {
+      return;
+    }
+
     var $parent = $(this).parents('.fl-bottom-bar-menu-holder');
     var menuHeight = $parent[0].clientHeight;
     var deviceHeight = window.document.documentElement.clientHeight;
@@ -80,7 +84,11 @@ function init() {
     $parent.height(menuHeight > deviceHeight ? '100%' : 'unset');
   });
 
-  $menuElement.on('click', '.fl-bottom-bar-menu-holder li:not([data-show-more])', function() {
+  $menuElement.on('click keydown', '.fl-bottom-bar-menu-holder li:not([data-show-more])', function() {
+    if (event.type !== 'click' && event.which !== 32 && event.which !== 13) {
+      return;
+    }
+
     $('.fl-bottom-bar-menu-holder li.active').removeClass('active');
     $(this).addClass('active');
   });
