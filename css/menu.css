@@ -143,8 +143,8 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder ul li[data-show-more] ~ li {
+  display: none;
   pointer-events: none;
-  opacity: 0;
   -webkit-transition: opacity 0.2s linear;
   -ms-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear;
@@ -177,8 +177,8 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder.expanded ul li[data-show-more] ~ li {
+  display: block;
   pointer-events: all;
-  opacity: 1;
 }
 
 .fl-bottom-bar-menu-holder-tablet ul li {
