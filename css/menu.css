@@ -143,7 +143,7 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder ul li[data-show-more] ~ li {
-  display: none;
+  visibility: hidden;
   pointer-events: none;
   -webkit-transition: opacity 0.2s linear;
   -ms-transition: opacity 0.2s linear;
@@ -177,7 +177,7 @@ body.disableScroll {
 }
 
 .fl-bottom-bar-menu-holder.expanded ul li[data-show-more] ~ li {
-  display: block;
+  visibility: visible;
   pointer-events: all;
 }
 
