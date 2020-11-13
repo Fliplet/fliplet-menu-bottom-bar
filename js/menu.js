@@ -67,7 +67,7 @@ function init() {
   $('.fl-bottom-bar-menu-holder li[data-page-id="' + pageId + '"]').addClass('active');
 
   // Show more, when available
-  $menuElement.on('click keydown', 'li[data-show-more]', function() {
+  $menuElement.on('click keydown', 'li[data-show-more]', function(event) {
     if (event.type !== 'click' && event.which !== 32 && event.which !== 13) {
       return;
     }
