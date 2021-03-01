@@ -307,7 +307,3 @@ body.disableScroll {
     height: auto;
   }
 }
-
-.hidden {
-  display: none !important;
-}
