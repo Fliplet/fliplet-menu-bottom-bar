@@ -16,7 +16,7 @@
             </div>
           </li>
           {{/compare}}
-          <li class="focus-outline {{#compare pageIndex '>' 7}}hidden{{/compare}}" data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}" tabindex="0">
+          <li class="focus-outline {{#compare pageIndex '>=' 7}}hidden{{/compare}}" data-hidden data-fl-navigate='{{{page.action}}}' data-page-id="{{page.pageId}}" tabindex="0">
             <div class="fl-bottom-bar-icon-holder">
               <div class="fl-menu-icon">
                 {{#if page.icon}}
