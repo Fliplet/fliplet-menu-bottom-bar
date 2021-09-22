@@ -1,6 +1,5 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
-var pageId = Fliplet.Env.get('pageId');
 
 function init() {
   var data = Fliplet.Widget.getData(menuInstanceId) || {};
@@ -63,8 +62,20 @@ function init() {
     return Promise.reject();
   });
 
-  // Select active page
-  $('.fl-bottom-bar-menu-holder li[data-page-id="' + pageId + '"]').addClass('active');
+  var activeMenuItem = parseInt(Fliplet.Navigate.query.activeMenuItem, 10);
+
+  // Select active page based on query
+  if (!isNaN(activeMenuItem)) {
+    $('.fl-bottom-bar-menu-holder')
+      .each(function() {
+        $(this).find('li')
+          .not('[data-show-more]') // Ignore "More" menu items
+          .eq(activeMenuItem).addClass('active');
+      })
+  } else {
+    // Select active page based on current page ID
+    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').addClass('active');
+  }
 
   // Show more, when available
   $menuElement.on('click keydown', 'li[data-show-more]', function(event) {
