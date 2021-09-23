@@ -1,0 +1,13 @@
+{
+    "widgets": {
+        "menuBottomBar": {
+            "dataSource": {
+                "actions": {
+                    "more": "More",
+                    "hide": "Hide",
+                    "exit": "Exit"
+                }
+            }
+        }
+    }
+}
