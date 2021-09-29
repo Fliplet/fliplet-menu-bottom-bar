@@ -1,7 +1,7 @@
 {
     "widgets": {
         "menuBottomBar": {
-            "dataSource": {
+            "bottomBar": {
                 "actions": {
                     "more": "More",
                     "hide": "Hide",
