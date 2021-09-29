@@ -1,6 +1,5 @@
 {
   "extends": "fliplet",
   "globals": {
-    "T": "readonly"
   }
 }
