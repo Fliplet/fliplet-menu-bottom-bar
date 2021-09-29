@@ -17,7 +17,7 @@ function init() {
       '<i class="fa fa-chevron-up"></i>',
       '</div>',
       '<div class="fl-menu-title">',
-      '<span class="more">' + T('widgets.menuBottomBar.dataSource.actions.more') + '</span><span class="hide">' + T('widgets.menuBottomBar.dataSource.actions.more') + '</span>',
+      '<span class="more">' + T('widgets.menu.bottomBar.actions.more') + '</span><span class="hide">' + T('widgets.menu.bottomBar.actions.more') + '</span>',
       '</div>',
       '</div>',
       '</li>'
@@ -52,7 +52,7 @@ function init() {
         '<i class="fa fa-sign-out"></i>',
         '</div>',
         '<div class="fl-menu-title">',
-        '<span>' + T('widgets.menuBottomBar.dataSource.actions.exit') + '</span>',
+        '<span>' + T('widgets.menu.bottomBar.actions.exit') + '</span>',
         '</div>',
         '</div>',
         '</li>'
