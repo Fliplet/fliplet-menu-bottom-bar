@@ -1,5 +1,3 @@
 {
-  "extends": "fliplet",
-  "globals": {
-  }
+  "extends": "fliplet"
 }
