@@ -1,6 +1,6 @@
 {
     "widgets": {
-        "menuBottomBar": {
+        "menu": {
             "bottomBar": {
                 "actions": {
                     "more": "More",
