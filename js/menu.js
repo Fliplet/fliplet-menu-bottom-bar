@@ -77,8 +77,8 @@ function init() {
   if (!isNaN(activeMenuItem)) {
     highlightItemByIndex(activeMenuItem);
   } else {
-    // Select active page based on current page ID
-    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').addClass('active');
+    // Select active page based on current page ID (excluding any items that use the activeMenuItem parameter)
+    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').not('[data-fl-navigate*="activeMenuItem="]').addClass('active');
   }
 
   // Show more, when available
