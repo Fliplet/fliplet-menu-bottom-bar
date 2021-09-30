@@ -1,25 +1,34 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 
+function highlightItemByIndex(index) {
+  $('.fl-bottom-bar-menu-holder')
+    .each(function() {
+      $(this).find('li')
+        .not('[data-show-more]') // Ignore "More" menu items
+        .eq(index).addClass('active');
+    });
+}
+
 function init() {
-  var data = Fliplet.Widget.getData(menuInstanceId) || {};
   $('body').addClass('fl-menu-bottom-bar');
 
   // Add exit app link
-  Fliplet.Hooks.on('addExitAppMenuLink', function () {
+  Fliplet.Hooks.on('addExitAppMenuLink', function() {
     var moreLink = [
       '<li data-show-more>',
-        '<div class="fl-bottom-bar-icon-holder">',
-          '<div class="fl-menu-icon">',
-            '<i class="fa fa-chevron-up"></i>',
-          '</div>',
-          '<div class="fl-menu-title">',
-            '<span class="more">More</span><span class="hide">Hide</span>',
-          '</div>',
-        '</div>',
+      '<div class="fl-bottom-bar-icon-holder">',
+      '<div class="fl-menu-icon">',
+      '<i class="fa fa-chevron-up"></i>',
+      '</div>',
+      '<div class="fl-menu-title">',
+      '<span class="more">More</span><span class="hide">Hide</span>',
+      '</div>',
+      '</div>',
       '</li>'
     ].join('');
-    $menuElement.find('.fl-bottom-bar-menu-holder').each(function () {
+
+    $menuElement.find('.fl-bottom-bar-menu-holder').each(function() {
       var $menuHolder = $(this);
       var type = $menuHolder.hasClass('fl-bottom-bar-menu-holder-mobile') ? 'mobile' : 'tablet';
       var maxIcons = {
@@ -33,25 +42,27 @@ function init() {
 
       if ($menuHolder.find('li').length === maxIcons[type]) {
         var $shiftedMenuItem = $menuHolder.find('li').eq(maxIcons[type] - 1);
+
         $shiftedMenuItem.css('display', 'none').before(moreLink);
         $menuHolder.addClass('multiple');
-        setTimeout(function () {
+        setTimeout(function() {
           $shiftedMenuItem.css('display', '');
         }, 0);
       }
 
       var $li = $([
         '<li class="linked" data-fl-exit-app>',
-          '<div class="fl-bottom-bar-icon-holder">',
-            '<div class="fl-menu-icon">',
-              '<i class="fa fa-sign-out"></i>',
-            '</div>',
-            '<div class="fl-menu-title">',
-              '<span>Exit</span>',
-            '</div>',
-          '</div>',
+        '<div class="fl-bottom-bar-icon-holder">',
+        '<div class="fl-menu-icon">',
+        '<i class="fa fa-sign-out"></i>',
+        '</div>',
+        '<div class="fl-menu-title">',
+        '<span>Exit</span>',
+        '</div>',
+        '</div>',
         '</li>'
       ].join(''));
+
       $li.on('click', function onExitClick() {
         Fliplet.Navigate.exitApp();
       });
@@ -66,15 +77,10 @@ function init() {
 
   // Select active page based on query
   if (!isNaN(activeMenuItem)) {
-    $('.fl-bottom-bar-menu-holder')
-      .each(function() {
-        $(this).find('li')
-          .not('[data-show-more]') // Ignore "More" menu items
-          .eq(activeMenuItem).addClass('active');
-      })
+    highlightItemByIndex(activeMenuItem);
   } else {
-    // Select active page based on current page ID
-    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').addClass('active');
+    // Select active page based on current page ID (excluding any items that use the activeMenuItem parameter)
+    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').not('[data-fl-navigate*="activeMenuItem="]').addClass('active');
   }
 
   // Show more, when available
@@ -88,6 +94,7 @@ function init() {
     var $parent = $(this).parents('.fl-bottom-bar-menu-holder');
     var menuHeight = $parent[0].clientHeight;
     var deviceHeight = window.document.documentElement.clientHeight;
+
     $parent.toggleClass('expanded');
 
     // Prevent scrolling content when menu is opened
@@ -103,6 +110,16 @@ function init() {
     }
 
     $('.fl-bottom-bar-menu-holder li.active').removeClass('active');
+
+    var navigate = $(this).data('fl-navigate');
+    var index = Fliplet.Navigate.parseQuery(navigate.query).activeMenuItem;
+
+    if (typeof index !== 'undefined') {
+      highlightItemByIndex(index);
+
+      return;
+    }
+
     $(this).addClass('active');
   });
 
