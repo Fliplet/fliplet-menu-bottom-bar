@@ -1,13 +1,13 @@
 {
-    "widgets": {
-        "menu": {
-            "bottomBar": {
-                "actions": {
-                    "more": "More",
-                    "hide": "Hide",
-                    "exit": "Exit"
-                }
-            }
+  "widgets": {
+    "menu": {
+      "bottomBar": {
+        "actions": {
+          "more": "More",
+          "hide": "Hide",
+          "exit": "Exit"
         }
+      }
     }
+  }
 }
