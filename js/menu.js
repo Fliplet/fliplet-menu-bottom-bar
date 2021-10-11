@@ -3,9 +3,16 @@ var menuInstanceId = $menuElement.data('id');
 
 $($menuElement).translate();
 
-function init() {
-  var data = Fliplet.Widget.getData(menuInstanceId) || {};
+function highlightItemByIndex(index) {
+  $('.fl-bottom-bar-menu-holder')
+    .each(function() {
+      $(this).find('li')
+        .not('[data-show-more]') // Ignore "More" menu items
+        .eq(index).addClass('active');
+    });
+}
 
+function init() {
   $('body').addClass('fl-menu-bottom-bar');
 
   // Add exit app link
@@ -72,15 +79,10 @@ function init() {
 
   // Select active page based on query
   if (!isNaN(activeMenuItem)) {
-    $('.fl-bottom-bar-menu-holder')
-      .each(function() {
-        $(this).find('li')
-          .not('[data-show-more]') // Ignore "More" menu items
-          .eq(activeMenuItem).addClass('active');
-      });
+    highlightItemByIndex(activeMenuItem);
   } else {
-    // Select active page based on current page ID
-    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').addClass('active');
+    // Select active page based on current page ID (excluding any items that use the activeMenuItem parameter)
+    $('.fl-bottom-bar-menu-holder li[data-page-id="' + Fliplet.Env.get('pageId') + '"]').not('[data-fl-navigate*="activeMenuItem="]').addClass('active');
   }
 
   // Show more, when available
@@ -110,6 +112,16 @@ function init() {
     }
 
     $('.fl-bottom-bar-menu-holder li.active').removeClass('active');
+
+    var navigate = $(this).data('fl-navigate');
+    var index = Fliplet.Navigate.parseQuery(navigate.query).activeMenuItem;
+
+    if (typeof index !== 'undefined') {
+      highlightItemByIndex(index);
+
+      return;
+    }
+
     $(this).addClass('active');
   });
 
