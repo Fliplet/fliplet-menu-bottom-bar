@@ -1,7 +1,7 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 
-$($menuElement).translate();
+$menuElement.translate();
 
 function highlightItemByIndex(index) {
   $('.fl-bottom-bar-menu-holder')
