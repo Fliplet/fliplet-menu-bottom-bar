@@ -1,6 +1,8 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 
+$menuElement.translate();
+
 function highlightItemByIndex(index) {
   $('.fl-bottom-bar-menu-holder')
     .each(function() {
@@ -22,7 +24,7 @@ function init() {
       '<i class="fa fa-chevron-up"></i>',
       '</div>',
       '<div class="fl-menu-title">',
-      '<span class="more">More</span><span class="hide">Hide</span>',
+      '<span class="more">' + T('widgets.menu.bottomBar.actions.more') + '</span><span class="hide">' + T('widgets.menu.bottomBar.actions.more') + '</span>',
       '</div>',
       '</div>',
       '</li>'
@@ -57,7 +59,7 @@ function init() {
         '<i class="fa fa-sign-out"></i>',
         '</div>',
         '<div class="fl-menu-title">',
-        '<span>Exit</span>',
+        '<span>' + T('widgets.menu.bottomBar.actions.exit') + '</span>',
         '</div>',
         '</div>',
         '</li>'
