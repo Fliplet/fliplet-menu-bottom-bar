@@ -1,8 +1,6 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 
-$menuElement.translate();
-
 function highlightItemByIndex(index) {
   $('.fl-bottom-bar-menu-holder')
     .each(function() {
@@ -136,3 +134,7 @@ function init() {
 if (menuInstanceId) {
   init();
 }
+
+Fliplet().then(function() {
+  $menuElement.translate();
+});
