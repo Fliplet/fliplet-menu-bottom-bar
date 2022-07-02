@@ -22,7 +22,7 @@ function init() {
       '<i class="fa fa-chevron-up"></i>',
       '</div>',
       '<div class="fl-menu-title">',
-      '<span class="more">More</span><span class="hide">Hide</span>',
+      '<span class="more">' + T('widgets.menu.bottomBar.actions.more') + '</span><span class="hide">' + T('widgets.menu.bottomBar.actions.more') + '</span>',
       '</div>',
       '</div>',
       '</li>'
@@ -57,7 +57,7 @@ function init() {
         '<i class="fa fa-sign-out"></i>',
         '</div>',
         '<div class="fl-menu-title">',
-        '<span>Exit</span>',
+        '<span>' + T('widgets.menu.bottomBar.actions.exit') + '</span>',
         '</div>',
         '</div>',
         '</li>'
@@ -134,3 +134,7 @@ function init() {
 if (menuInstanceId) {
   init();
 }
+
+Fliplet().then(function() {
+  $menuElement.translate();
+});
