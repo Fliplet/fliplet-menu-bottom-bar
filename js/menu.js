@@ -24,11 +24,7 @@ function highlightItemByIndex(index) {
  * @returns {void}
  */
 function attachKeyboardHandlers() {
-  if (!Fliplet.Env.is('native')) {
-    return;
-  }
-
-  if (!window.visualViewport) {
+  if (!Fliplet.Env.is('native') || !window.visualViewport) {
     return;
   }
 
