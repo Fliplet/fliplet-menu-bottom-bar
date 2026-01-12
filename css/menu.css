@@ -29,6 +29,10 @@ body.disableScroll {
   z-index: 1009;
 }
 
+body.fl-bottom-bar-keyboard-visible [data-fl-widget-instance][data-type="menu"] {
+  display: none;
+}
+
 .fl-bottom-bar-menu-holder {
   position: fixed;
   left: 0;
@@ -41,6 +45,10 @@ body.disableScroll {
   transform: translate3d(0, -65px, 0);
   transform: translate3d(0, calc(-65px - env(safe-area-inset-bottom)), 0);
   transition: transform 0.2s ease-out;
+}
+
+body.fl-bottom-bar-keyboard-visible .fl-bottom-bar-menu-holder {
+  display: none;
 }
 
 .fl-bottom-bar-menu-holder ul {
