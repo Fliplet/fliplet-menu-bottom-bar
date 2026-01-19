@@ -1,6 +1,10 @@
 var $menuElement = $('[data-name="Bottom icon bar"]');
 var menuInstanceId = $menuElement.data('id');
 
+/**
+ * Highlights a menu item by its index position
+ * @param {number} index - Zero-based index of the menu item to highlight
+ */
 function highlightItemByIndex(index) {
   $('.fl-bottom-bar-menu-holder')
     .each(function() {
@@ -10,8 +14,55 @@ function highlightItemByIndex(index) {
     });
 }
 
+/**
+ * Attaches keyboard visibility handlers to hide the bottom bar menu when keyboard appears on native devices
+ *
+ * This function uses the Visual Viewport API to detect when the native keyboard is shown or hidden.
+ * When the keyboard is visible, it adds the 'fl-bottom-bar-keyboard-visible' class to the body element,
+ * which triggers CSS rules to hide the bottom menu.
+ *
+ * @returns {void}
+ */
+function attachKeyboardHandlers() {
+  if (!Fliplet.Env.is('native') || !window.visualViewport) {
+    return;
+  }
+
+  var $body = $('body');
+  var isKeyboardVisible = false;
+  var initialViewportHeight = window.visualViewport.height;
+
+  /**
+   * Handles viewport resize and scroll events to detect keyboard visibility
+   * @private
+   */
+  var viewportHandler = function() {
+    var viewportHeight = window.visualViewport.height;
+
+    // If viewport height is significantly smaller than initial height, keyboard is visible
+    // Threshold of 150px accounts for device variations
+    var heightDifference = initialViewportHeight - viewportHeight;
+    var keyboardVisible = heightDifference > 150;
+
+    if (keyboardVisible && !isKeyboardVisible) {
+      isKeyboardVisible = true;
+      $body.addClass('fl-bottom-bar-keyboard-visible');
+    } else if (!keyboardVisible && isKeyboardVisible) {
+      isKeyboardVisible = false;
+      $body.removeClass('fl-bottom-bar-keyboard-visible');
+      // Update initial height when keyboard is fully hidden
+      initialViewportHeight = viewportHeight;
+    }
+  };
+
+  window.visualViewport.addEventListener('resize', viewportHandler);
+  window.visualViewport.addEventListener('scroll', viewportHandler);
+}
+
 function init() {
   $('body').addClass('fl-menu-bottom-bar');
+
+  attachKeyboardHandlers();
 
   // Add exit app link
   Fliplet.Hooks.on('addExitAppMenuLink', function() {
