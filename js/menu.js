@@ -13,6 +13,21 @@ function highlightItemByIndex(index) {
 function init() {
   $('body').addClass('fl-menu-bottom-bar');
 
+  // Deduplicate menu items by page ID to fix corrupted menu data
+  $menuElement.find('.fl-bottom-bar-menu-holder').each(function() {
+    var seenPages = {};
+
+    $(this).find('li[data-page-id]').each(function() {
+      var pageId = $(this).attr('data-page-id');
+
+      if (seenPages[pageId]) {
+        $(this).remove();
+      } else {
+        seenPages[pageId] = true;
+      }
+    });
+  });
+
   // Add exit app link
   Fliplet.Hooks.on('addExitAppMenuLink', function() {
     var moreLink = [
