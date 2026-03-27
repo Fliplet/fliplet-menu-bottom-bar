@@ -13,19 +13,22 @@ function highlightItemByIndex(index) {
 function init() {
   $('body').addClass('fl-menu-bottom-bar');
 
-  // Deduplicate menu items by page ID to fix corrupted menu data
-  $menuElement.find('.fl-bottom-bar-menu-holder').each(function() {
-    var seenPages = {};
+  // Remove stale master page references that should have been replaced by production pages
+  var appPages = Fliplet.Env.get('appPages') || [];
+  var masterPageIds = {};
 
-    $(this).find('li[data-page-id]').each(function() {
-      var pageId = $(this).attr('data-page-id');
+  appPages.forEach(function(p) {
+    if (p.masterPageId) {
+      masterPageIds[p.masterPageId] = true;
+    }
+  });
 
-      if (seenPages[pageId]) {
-        $(this).remove();
-      } else {
-        seenPages[pageId] = true;
-      }
-    });
+  $menuElement.find('.fl-bottom-bar-menu-holder li[data-page-id]').each(function() {
+    var pageId = $(this).attr('data-page-id');
+
+    if (pageId && masterPageIds[pageId]) {
+      $(this).remove();
+    }
   });
 
   // Add exit app link
