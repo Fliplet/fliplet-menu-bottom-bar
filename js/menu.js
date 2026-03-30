@@ -72,12 +72,14 @@ function init() {
     }
   });
 
-  $menuElement.find('.fl-bottom-bar-menu-holder li[data-page-id]').each(function() {
-    var pageId = $(this).attr('data-page-id');
+  Fliplet().then(function() {
+    $menuElement.find('.fl-bottom-bar-menu-holder li[data-page-id]').each(function() {
+      var pageId = $(this).attr('data-page-id');
 
-    if (pageId && masterPageIds[pageId]) {
-      $(this).remove();
-    }
+      if (pageId && masterPageIds[pageId]) {
+        $(this).remove();
+      }
+    });
   });
   attachKeyboardHandlers();
 
