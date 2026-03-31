@@ -81,6 +81,7 @@ function init() {
       }
     });
   });
+
   attachKeyboardHandlers();
 
   // Add exit app link
