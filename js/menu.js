@@ -62,6 +62,26 @@ function attachKeyboardHandlers() {
 function init() {
   $('body').addClass('fl-menu-bottom-bar');
 
+  // Remove stale master page references that should have been replaced by production pages
+  var appPages = Fliplet.Env.get('appPages') || [];
+  var masterPageIds = {};
+
+  appPages.forEach(function(p) {
+    if (p.masterPageId) {
+      masterPageIds[p.masterPageId] = true;
+    }
+  });
+
+  Fliplet().then(function() {
+    $menuElement.find('.fl-bottom-bar-menu-holder li[data-page-id]').each(function() {
+      var pageId = $(this).attr('data-page-id');
+
+      if (pageId && masterPageIds[pageId]) {
+        $(this).remove();
+      }
+    });
+  });
+
   attachKeyboardHandlers();
 
   // Add exit app link
